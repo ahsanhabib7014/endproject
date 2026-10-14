@@ -957,7 +957,6 @@
 // }
 
 // ///////////////////////////////////////////////////////
-
 import { NextResponse } from 'next/server';
 import mongoose from 'mongoose';
 import jwt from 'jsonwebtoken';
@@ -1048,7 +1047,8 @@ export async function GET(req) {
               totalSmall
             } 
           },
-          { upsert: true, new: true, rawResult: true }
+          // changed here: new -> returnDocument
+          { upsert: true, returnDocument: 'after', rawResult: true }
         );
         
         isNewlyCreated = !upsertResult.lastErrorObject?.updatedExisting;
