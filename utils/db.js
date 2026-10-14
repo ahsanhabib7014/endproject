@@ -43,7 +43,7 @@
 import mongoose from 'mongoose';
 
 // ✅ Mongoose deprecation warning fix
-mongoose.set('returnOriginal', false);    // { new: true } এর equivalent
+mongoose.set('returnDocument', 'after');
 mongoose.set('strictQuery', true);
 
 const MONGODB_URI = process.env.MONGODB_URI;
